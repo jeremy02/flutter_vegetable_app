@@ -12,7 +12,7 @@ App  Preview
 :-------------------------:
 ![](screenshots/app_preview.png)
 
-The images below shows the home and detail screens of the app.
+The images below shows the splash, home and detail screens of the app.
 
 Splash Screen            |      Home Screen         |  Detail Screen
 :-------------------------:|:-------------------------:|:-------------------------:
