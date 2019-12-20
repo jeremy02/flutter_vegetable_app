@@ -16,7 +16,7 @@ The images below shows the splash, home and detail screens of the app.
 
 Splash Screen            |      Home Screen         |  Detail Screen
 :-------------------------:|:-------------------------:|:-------------------------:
-![](screenshots/splash_screen.png)  |  ![](screenshots/home_screen.png)  |  ![](screenshots/app_preview.png)
+![](screenshots/splash_screen.png)  |  ![](screenshots/home_screen.png)  |  ![](screenshots/detail_screen.png)
 
 ## Design Details
 As exposed on the shared uplab's link, there's all the design details also present in this app.
