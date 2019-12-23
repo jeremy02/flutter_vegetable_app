@@ -72,9 +72,21 @@ class SplashScreen extends StatelessWidget{
 						child: ClipPath(
 							clipper: LeftSideWave(),
 							child: Container(
-								height: MediaQuery.of(context).size.height/2.5,
+								height: MediaQuery.of(context).size.height/3,
 								decoration: BoxDecoration(
-									color: Colors.red,
+									color: Color.fromRGBO(255, 209, 50, 1.0),
+								),
+							),
+						),
+					),
+					Align(
+						alignment: Alignment.bottomRight,
+						child: ClipPath(
+							clipper: RightSideWave(),
+							child: Container(
+								height: MediaQuery.of(context).size.height/3,
+								decoration: BoxDecoration(
+									color: Color.fromRGBO(235, 74, 66, 1.0),
 								),
 							),
 						),
@@ -111,5 +123,32 @@ class LeftSideWave extends CustomClipper<Path>{
 	bool shouldReclip(CustomClipper<Path> oldClipper) {
 		return true;
 	}
+}
+
+class RightSideWave extends CustomClipper<Path>{
+	@override
+	Path getClip(Size size) {
+		Path path = new Path();
+		
+		path.lineTo(0.0, size.height/1.4);
+		
+		var firstControlPoint = Offset(size.width/2, size.height/1.4);
+		var firstEndPoint = Offset(size.width, 0.0);
+		path.quadraticBezierTo(firstControlPoint.dx, firstControlPoint.dy,
+			firstEndPoint.dx, firstEndPoint.dy);
+		
+		///move from bottom left to bottom right
+		path.lineTo(size.width, size.height);
+		
+		///move from bottom right to top left
+		path.lineTo(0.0, size.height);
+		
+		path.close();
+		return path;
+	}
 	
+	@override
+	bool shouldReclip(CustomClipper<Path> oldClipper) {
+		return true;
+	}
 }
