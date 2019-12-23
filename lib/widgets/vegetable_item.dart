@@ -19,6 +19,7 @@ class VegetableItem extends StatelessWidget{
 				},
 				child: Stack(
 					children: <Widget>[
+						buildImageAndTextContent(childAspectRatio),
 						buildAddToCartIcon(childAspectRatio),
 					],
 				),
@@ -27,7 +28,70 @@ class VegetableItem extends StatelessWidget{
 			color: Colors.white,
 		);
 	}
-	
+
+	Widget buildImageAndTextContent(double childAspectRatio) {
+		return Positioned(
+			top: childAspectRatio*60,
+			child: Column(
+				crossAxisAlignment: CrossAxisAlignment.start,
+				children: <Widget>[
+					Padding(
+						padding: EdgeInsets.only(
+							left: 8.0,
+							right: 8.0,
+						),
+						child: Image.asset(
+							"assets/images/red_capsicum.png",
+							fit: BoxFit.cover,
+							height: childAspectRatio*120,
+						),
+					),
+					Padding(
+						padding: EdgeInsets.only(
+							top: 16.0,
+							left: 8.0,
+							right: 8.0,
+						),
+						child: Text(
+							"Red Capsicum",
+							style: TextStyle(
+								fontWeight: FontWeight.bold,
+								color: Colors.black,
+							),
+						),
+					),
+					Padding(
+						padding: EdgeInsets.symmetric(
+							vertical: 2.0,
+							horizontal: 8.0,
+						),
+						child: Text(
+							"900gm",
+							style: TextStyle(
+								fontWeight: FontWeight.bold,
+								color: Color.fromRGBO(185, 184, 184, 1.0),
+								fontSize: 12.0,
+							),
+						),
+					),
+					Padding(
+						padding: EdgeInsets.symmetric(
+							vertical: 2.0,
+							horizontal: 8.0,
+						),
+						child: Text(
+							"\$18",
+							style: TextStyle(
+								fontWeight: FontWeight.bold,
+								color: Colors.black,
+								fontSize: 14.0,
+							),
+						),
+					),
+				],
+			)
+		);
+	}
 	
 	Widget buildAddToCartIcon(double childAspectRatio) {
 		return Align(

@@ -45,7 +45,7 @@ class SplashScreen extends StatelessWidget{
 											Text(
 												"Get fresh vegetables at your home easily",
 												style: TextStyle(
-													color: Colors.grey.shade600,
+													color: Color.fromRGBO(185, 184, 184, 1.0),
 													fontSize: 18.0,
 													fontWeight: FontWeight.bold,
 												),

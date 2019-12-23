@@ -49,7 +49,7 @@ class HomeScreenContent extends StatelessWidget{
 											return Padding(
 												padding: EdgeInsets.only(
 													top: 0.0,
-													bottom: 12.0,
+													bottom: 10.0,
 													left: index % 2 == 0 ? 0.0 : 8.0,
 												),
 												child: VegetableItem(childAspectRatio : childAspectRatio),
