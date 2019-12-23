@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_vegetable_app/screens/home_screen.dart';
 
 class SplashScreen extends StatelessWidget{
 	
@@ -91,13 +92,13 @@ class SplashScreen extends StatelessWidget{
 							),
 						),
 					),
-					nextButton(),
+					nextButton(context),
 				],
 			),
 		);
 	}
 
-    Widget nextButton() {
+    Widget nextButton(BuildContext context) {
 		return Align(
 			alignment: Alignment.center,
 			child: Material(
@@ -119,7 +120,12 @@ class SplashScreen extends StatelessWidget{
 						),
 					),
 					onTap: (){
-					
+						Navigator.of(context).
+						pushReplacement(MaterialPageRoute(
+							builder: (BuildContext context) =>
+								HomeScreen()
+							)
+						);
 					},
 				),
 			)
