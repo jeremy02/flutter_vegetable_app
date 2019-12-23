@@ -43,7 +43,7 @@ class SplashScreen extends StatelessWidget{
 											Text(
 												"Get fresh vegetables at your home easily",
 												style: TextStyle(
-													color: Colors.grey,
+													color: Colors.grey.shade600,
 													fontSize: 18.0,
 													fontWeight: FontWeight.bold,
 												),
@@ -70,7 +70,7 @@ class SplashScreen extends StatelessWidget{
 					Align(
 						alignment: Alignment.bottomLeft,
 						child: ClipPath(
-							clipper: LeftSideWave(),
+							clipper: LeftSplashScreenArc(),
 							child: Container(
 								height: MediaQuery.of(context).size.height/3,
 								decoration: BoxDecoration(
@@ -82,7 +82,7 @@ class SplashScreen extends StatelessWidget{
 					Align(
 						alignment: Alignment.bottomRight,
 						child: ClipPath(
-							clipper: RightSideWave(),
+							clipper: RightSplashScreenArc(),
 							child: Container(
 								height: MediaQuery.of(context).size.height/3,
 								decoration: BoxDecoration(
@@ -91,13 +91,44 @@ class SplashScreen extends StatelessWidget{
 							),
 						),
 					),
+					nextButton(),
 				],
 			),
 		);
 	}
+
+    Widget nextButton() {
+		return Align(
+			alignment: Alignment.center,
+			child: Material(
+				color: Color.fromRGBO(134, 189, 15, 1.0),
+				shape: CircleBorder(),
+				clipBehavior: Clip.hardEdge,
+				child: InkWell(
+					splashColor: Colors.black.withOpacity(0.3),
+					child: Container(
+						height: 75,
+						width: 75,
+						decoration: BoxDecoration(
+							shape: BoxShape.circle,
+						),
+						child: Icon(
+							Icons.arrow_forward,
+							size: 36,
+							color: Colors.white,
+						),
+					),
+					onTap: (){
+					
+					},
+				),
+			)
+		);
+    }
 }
 
-class LeftSideWave extends CustomClipper<Path>{
+class LeftSplashScreenArc extends CustomClipper<Path>{
+	
 	@override
 	Path getClip(Size size) {
 		Path path = new Path();
@@ -116,6 +147,7 @@ class LeftSideWave extends CustomClipper<Path>{
 			firstEndPoint.dx, firstEndPoint.dy);
 		
 		path.close();
+		
 		return path;
 	}
 	
@@ -125,7 +157,8 @@ class LeftSideWave extends CustomClipper<Path>{
 	}
 }
 
-class RightSideWave extends CustomClipper<Path>{
+class RightSplashScreenArc extends CustomClipper<Path>{
+	
 	@override
 	Path getClip(Size size) {
 		Path path = new Path();
@@ -144,6 +177,7 @@ class RightSideWave extends CustomClipper<Path>{
 		path.lineTo(0.0, size.height);
 		
 		path.close();
+		
 		return path;
 	}
 	
