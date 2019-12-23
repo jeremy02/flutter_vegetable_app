@@ -44,8 +44,8 @@ class TopLeftArc extends CustomClipper<Path>{
 		path.lineTo(0.0, size.height);
 		
 		//move from bottom right to top right - height
-		var firstControlPoint = Offset(size.width/2.0, size.height/3.5);
-		var firstEndPoint = Offset(size.width, size.height/3.5);
+		var firstControlPoint = Offset(size.width/2.0, size.height/3.0);
+		var firstEndPoint = Offset(size.width, size.height/3.0);
 		path.quadraticBezierTo(firstControlPoint.dx, firstControlPoint.dy,
 			firstEndPoint.dx, firstEndPoint.dy);
 		
@@ -68,10 +68,10 @@ class TopRightArc extends CustomClipper<Path>{
 	Path getClip(Size size) {
 		Path path = new Path();
 		
-		path.lineTo(0.0, size.height/3.5);
+		path.lineTo(0.0, size.height/3.0);
 		
 		//move to bottom right
-		var firstControlPoint = Offset(size.width/2.0, size.height/3.5);
+		var firstControlPoint = Offset(size.width/2.0, size.height/3.0);
 		var firstEndPoint = Offset(size.width, size.height);
 		path.quadraticBezierTo(firstControlPoint.dx, firstControlPoint.dy,
 			firstEndPoint.dx, firstEndPoint.dy);

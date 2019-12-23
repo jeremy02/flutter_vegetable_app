@@ -14,8 +14,9 @@ class HomeScreenContent extends StatelessWidget{
 					Column(
 						children: <Widget>[
 							Padding(
-								padding: EdgeInsets.symmetric(
-									vertical: MediaQuery.of(context).size.height/12,
+								padding: EdgeInsets.only(
+									top: MediaQuery.of(context).size.height*0.08,
+									bottom: MediaQuery.of(context).size.height*0.075,
 								),
 								child: Text(
 									"Vegetable",
