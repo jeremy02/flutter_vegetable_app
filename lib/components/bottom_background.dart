@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 
-class HomeScreenTopBg extends StatelessWidget{
+class BottomBackground extends StatelessWidget{
 	
 	@override
 	Widget build(BuildContext context) {
 		return Stack(
 			children: <Widget>[
 				Align(
-					alignment: Alignment.topLeft,
+					alignment: Alignment.bottomLeft,
 					child: ClipPath(
-						clipper: TopLeftArc(),
+						clipper: BottomLeftArc(),
 						child: Container(
-							height: MediaQuery.of(context).size.height/3.0,
 							decoration: BoxDecoration(
 								color: Color.fromRGBO(255, 209, 50, 1.0),
 							),
@@ -19,11 +18,10 @@ class HomeScreenTopBg extends StatelessWidget{
 					),
 				),
 				Align(
-					alignment: Alignment.topRight,
+					alignment: Alignment.bottomRight,
 					child: ClipPath(
-						clipper: TopRightArc(),
+						clipper: BottomRightArc(),
 						child: Container(
-							height: MediaQuery.of(context).size.height/3.0,
 							decoration: BoxDecoration(
 								color: Color.fromRGBO(235, 74, 66, 1.0),
 							),
@@ -35,7 +33,7 @@ class HomeScreenTopBg extends StatelessWidget{
 	}
 }
 
-class TopLeftArc extends CustomClipper<Path>{
+class BottomLeftArc extends CustomClipper<Path>{
 	
 	@override
 	Path getClip(Size size) {
@@ -43,16 +41,19 @@ class TopLeftArc extends CustomClipper<Path>{
 		
 		path.lineTo(0.0, size.height);
 		
-		//move from bottom right to top right - height
-		var firstControlPoint = Offset(size.width/2.0, size.height/3.0);
-		var firstEndPoint = Offset(size.width, size.height/3.0);
+		///move from bottom left to bottom right
+		path.lineTo(size.width, size.height);
+		
+		///move from bottom right to top right
+		path.lineTo(size.width, size.height/1.5);
+		
+		var firstControlPoint = Offset(size.width/2.0, size.height/1.5);
+		var firstEndPoint = Offset(0.0, 0.0);
 		path.quadraticBezierTo(firstControlPoint.dx, firstControlPoint.dy,
 			firstEndPoint.dx, firstEndPoint.dy);
 		
-		///move to top right
-		path.lineTo(size.width, 0.0);
-		
 		path.close();
+		
 		return path;
 	}
 	
@@ -62,24 +63,27 @@ class TopLeftArc extends CustomClipper<Path>{
 	}
 }
 
-class TopRightArc extends CustomClipper<Path>{
+class BottomRightArc extends CustomClipper<Path>{
 	
 	@override
 	Path getClip(Size size) {
 		Path path = new Path();
 		
-		path.lineTo(0.0, size.height/3.0);
+		path.lineTo(0.0, size.height/1.5);
 		
-		//move to bottom right
-		var firstControlPoint = Offset(size.width/2.0, size.height/3.0);
-		var firstEndPoint = Offset(size.width, size.height);
+		var firstControlPoint = Offset(size.width/2.0, size.height/1.5);
+		var firstEndPoint = Offset(size.width, 0.0);
 		path.quadraticBezierTo(firstControlPoint.dx, firstControlPoint.dy,
 			firstEndPoint.dx, firstEndPoint.dy);
 		
-		///move to top right
-		path.lineTo(size.width, 0.0);
+		///move from bottom left to bottom right
+		path.lineTo(size.width, size.height);
+		
+		///move from bottom right to top left
+		path.lineTo(0.0, size.height);
 		
 		path.close();
+		
 		return path;
 	}
 	

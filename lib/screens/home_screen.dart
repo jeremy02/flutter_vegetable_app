@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_vegetable_app/components/home_screen_bottom_bg.dart';
+import 'package:flutter_vegetable_app/components/bottom_background.dart';
 import 'package:flutter_vegetable_app/components/home_screen_content.dart';
-import 'package:flutter_vegetable_app/components/home_screen_top_bg.dart';
+import 'package:flutter_vegetable_app/components/top_background.dart';
 
 class HomeScreen extends StatelessWidget{
 	
@@ -17,7 +17,7 @@ class HomeScreen extends StatelessWidget{
 						child: Container(
 							color: Colors.white,
 							width: MediaQuery.of(context).size.width,
-							child: HomeScreenTopBg(),
+							child: TopBackground(),
 						),
 					),
 					Positioned(
@@ -26,10 +26,12 @@ class HomeScreen extends StatelessWidget{
 							color: Colors.white,
 							width: MediaQuery.of(context).size.width,
 							height: MediaQuery.of(context).size.height/5,
-							child: HomeScreenBottomBg(),
+							child: BottomBackground(),
 						),
 					),
-					HomeScreenContent(),
+					HomeScreenContent(
+						textTitle : "Vegetable App",
+					),
 				],
 			),
 		);

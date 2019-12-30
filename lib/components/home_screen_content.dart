@@ -3,7 +3,11 @@ import 'package:flutter_vegetable_app/widgets/vegetable_item.dart';
 
 class HomeScreenContent extends StatelessWidget{
 	
-	@override
+	final textTitle;
+	
+	const HomeScreenContent({Key key, this.textTitle}) : super(key: key);
+
+    @override
 	Widget build(BuildContext context) {
 		
 		double childAspectRatio = MediaQuery.of(context).size.width / (MediaQuery.of(context).size.height / 1.4);
@@ -19,7 +23,7 @@ class HomeScreenContent extends StatelessWidget{
 									bottom: MediaQuery.of(context).size.height*0.075,
 								),
 								child: Text(
-									"Vegetable",
+									textTitle,
 									style: TextStyle(
 										fontSize: 20.0,
 										color: Colors.white,
