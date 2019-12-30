@@ -123,7 +123,7 @@ class VegetableItem extends StatelessWidget{
 								),
 							),
 						),
-						child: InkWell(
+						child: GestureDetector(
 							onTap: (){
 								// show snackbar for adding to cart
 								final snackBar = SnackBar(
