@@ -129,7 +129,7 @@ class VegetableItem extends StatelessWidget{
 								final snackBar = SnackBar(
 									content: Text('Added To Cart!'),
 									action: SnackBarAction(
-										label: 'Remove',
+										label: 'REMOVE',
 										onPressed: () {
 											// Some code to undo the change.
 										},

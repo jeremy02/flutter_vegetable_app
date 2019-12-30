@@ -38,18 +38,58 @@ class DetailScreen extends StatelessWidget{
 							),
 							Flexible(
 								flex: 2,
-								child: Card(
-									margin: EdgeInsets.symmetric(
-										horizontal: 30.0,
-									),
-									shape: RoundedRectangleBorder(
-										borderRadius: BorderRadius.all(Radius.circular(20.0)),
-									),
-									child: Container(
-										decoration: BoxDecoration(
-											color: Colors.white54,
-											borderRadius: BorderRadius.all(Radius.circular(20.0)),
-										),
+								child: Padding(
+									padding: EdgeInsets.symmetric(horizontal: 26.0),
+									child: Stack(
+										children: <Widget>[
+											Card(
+												shape: RoundedRectangleBorder(
+													borderRadius: BorderRadius.all(Radius.circular(20.0)),
+												),
+												child: FractionallySizedBox(
+													widthFactor: 1.0,
+													heightFactor: 0.94,
+													child: Container(
+														decoration: BoxDecoration(
+															color: Colors.white,
+															borderRadius: BorderRadius.all(Radius.circular(20.0)),
+														),
+													),
+												),
+											),
+											Align(
+												alignment: Alignment.bottomCenter,
+												child: InkWell(
+													splashColor: Colors.black.withOpacity(0.4),
+													onTap: (){},
+													child: Builder(
+														builder: (BuildContext context) {
+															return RaisedButton(
+																textColor: Colors.white,
+																color: Color.fromRGBO(136, 187, 19, 1.0),
+																child: Text(
+																	"Add to Cart",
+																	style: TextStyle(
+																		fontWeight: FontWeight.bold,
+																	),
+																),
+																padding: EdgeInsets.symmetric(
+																	vertical: 12.0,
+																	horizontal: 20.0,
+																),
+																onPressed: () {
+																	// add to cart action
+																	addToCart(context);
+																},
+																shape: RoundedRectangleBorder(
+																	borderRadius: BorderRadius.circular(30.0),
+																),
+															);
+														},
+													),
+												),
+											),
+										],
 									),
 								),
 							),
@@ -68,4 +108,21 @@ class DetailScreen extends StatelessWidget{
 			),
 		);
 	}
+
+    addToCart(BuildContext context) {
+	    // show snackbar for adding to cart
+	    final snackBar = SnackBar(
+		    content: Text('Added To Cart!'),
+		    action: SnackBarAction(
+			    label: 'REMOVE',
+			    onPressed: () {
+				    // Some code to undo the change.
+			    },
+		    ),
+	    );
+	
+	    // Find the Scaffold in the widget tree and use
+	    // it to show a SnackBar.
+	    Scaffold.of(context).showSnackBar(snackBar);
+    }
 }
