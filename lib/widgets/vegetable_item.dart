@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_vegetable_app/screens/detail_screen.dart';
 
 class VegetableItem extends StatelessWidget{
 	
@@ -15,7 +16,11 @@ class VegetableItem extends StatelessWidget{
 			child: InkWell(
 				borderRadius: BorderRadius.all(Radius.circular(16)),
 				onTap: (){
-				
+					// go to next screen
+					Navigator.push(
+						context,
+						MaterialPageRoute(builder: (context) => DetailScreen()),
+					);
 				},
 				child: Stack(
 					children: <Widget>[
@@ -118,19 +123,25 @@ class VegetableItem extends StatelessWidget{
 								),
 							),
 						),
-						child: Stack(
-							children: <Widget>[
-								Positioned(
-									bottom: 4.0,
-									right: 8.0,
-									child: Icon(
-										Icons.shopping_cart,
-										size: childAspectRatio*36,
-										color: Colors.white,
+						child: InkWell(
+							onTap: (){
+								// go to next screen
+								print("Add To Cart");
+							},
+							child: Stack(
+								children: <Widget>[
+									Positioned(
+										bottom: 4.0,
+										right: 8.0,
+										child: Icon(
+											Icons.shopping_cart,
+											size: childAspectRatio*36,
+											color: Colors.white,
+										),
 									),
-								),
-							],
-						),
+								],
+							),
+						)
 					),
 				),
 			),
