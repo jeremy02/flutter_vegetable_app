@@ -25,7 +25,7 @@ class VegetableItem extends StatelessWidget{
 				child: Stack(
 					children: <Widget>[
 						buildImageAndTextContent(childAspectRatio),
-						buildAddToCartIcon(childAspectRatio),
+						buildAddToCartIcon(childAspectRatio,context),
 					],
 				),
 			),
@@ -98,7 +98,7 @@ class VegetableItem extends StatelessWidget{
 		);
 	}
 	
-	Widget buildAddToCartIcon(double childAspectRatio) {
+	Widget buildAddToCartIcon(double childAspectRatio, BuildContext context) {
 		return Align(
 			alignment: Alignment.bottomRight,
 			child: Container(
@@ -125,8 +125,20 @@ class VegetableItem extends StatelessWidget{
 						),
 						child: InkWell(
 							onTap: (){
-								// go to next screen
-								print("Add To Cart");
+								// show snackbar for adding to cart
+								final snackBar = SnackBar(
+									content: Text('Added To Cart!'),
+									action: SnackBarAction(
+										label: 'Remove',
+										onPressed: () {
+											// Some code to undo the change.
+										},
+									),
+								);
+								
+								// Find the Scaffold in the widget tree and use
+								// it to show a SnackBar.
+								Scaffold.of(context).showSnackBar(snackBar);
 							},
 							child: Stack(
 								children: <Widget>[
