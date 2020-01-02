@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_vegetable_app/components/detail_screen_main_content.dart';
+import 'package:flutter_vegetable_app/components/detail_screen_more_items_content.dart';
 import 'package:flutter_vegetable_app/components/top_background.dart';
 
 class DetailScreen extends StatelessWidget{
@@ -46,10 +47,11 @@ class DetailScreen extends StatelessWidget{
 							),
 							Container(
 								height: MediaQuery.of(context).size.height*0.18,
-								margin: EdgeInsets.all(10.0),
-								decoration: BoxDecoration(
-									color: Colors.red,
+								margin: EdgeInsets.symmetric(
+									vertical: 10.0,
+									horizontal: 16.0,
 								),
+								child: DetailScreenMoreItemsContent(),
 							),
 						],
 					),

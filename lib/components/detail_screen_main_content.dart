@@ -9,6 +9,7 @@ class DetailScreenMainContent extends StatelessWidget{
 					shape: RoundedRectangleBorder(
 						borderRadius: BorderRadius.all(Radius.circular(20.0)),
 					),
+					elevation: 4.0,
 					child: FractionallySizedBox(
 						widthFactor: 1.0,
 						heightFactor: 0.96,
