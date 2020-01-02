@@ -46,7 +46,7 @@ class DetailScreen extends StatelessWidget{
 								),
 							),
 							Container(
-								height: MediaQuery.of(context).size.height*0.18,
+								height: MediaQuery.of(context).size.height*0.20,
 								margin: EdgeInsets.symmetric(
 									vertical: 10.0,
 									horizontal: 16.0,
